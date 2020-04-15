@@ -1,10 +1,468 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml><![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no"/>
 
+    <title>Добро пожаловать в Колабу</title>
+    <style type="text/css">
+        /* GENERAL STYLE RESETS */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: none;
+            -webkit-text-resize: 100%;
+            text-resize: 100%;
+        }
+
+        body {
+            height: 100% !important;
+            width: 100% !important;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: table;
+        }
+
+        a {
+            outline: none;
+            color: #40aceb;
+            text-decoration: underline;
+        }
+
+        img, a img {
+            border: 0;
+            outline: none;
+            text-decoration: none;
+        }
+
+        table, td {
+            border-collapse: collapse;
+        }
+
+        table, td {
+            mso-table-lspace: 0;
+            mso-table-rspace: 0;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        @media only screen and (max-width: 640px) {
+            a[href^="tel"], a[href^="sms"] {
+                text-decoration: none;
+                color: #000000;
+                pointer-events: none;
+                cursor: default;
+            }
+
+            .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+                text-decoration: underline;
+                color: #000000 !important;
+                pointer-events: auto;
+                cursor: default;
+            }
+
+            td[class="container"],
+            table[class="container"] {
+                width: 100% !important;
+                text-align: center !important;
+                min-width: 100% !important;
+            }
+
+            img[class="imgwidth"] {
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            img[class="imgwidth90"] {
+                width: 94% !important;
+                height: auto !important;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            span[class="mobile-hide"],
+            div[class="mobile-hide"] {
+                display: none !important;
+            }
+
+            td[class="width50"] {
+                width: 200px !important;
+            }
+
+            table[class="auto"] {
+                width: auto !important;
+            }
+
+            img[class="smallimgwidth"] {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 320px !important;
+            }
+
+            img[class="logo"] {
+                width: 180px !important;
+                height: auto !important;
+            }
+
+            td[class="space"] {
+                width: 15px !important;
+            }
+
+            td[class="space20"] {
+                width: 20px !important;
+            }
+
+            td[class="vspace15"] {
+                height: 15px !important;
+                line-height: 15px !important;
+            }
+
+            td[class="vspace20"] {
+                height: 20px !important;
+                line-height: 20px !important;
+            }
+
+            td[class="vspace25"] {
+                height: 10px !important;
+                line-height: 5px !important;
+            }
+
+            td[class="vspace35"] {
+                height: 18px !important;
+                line-height: 5px !important;
+            }
+
+            table[class="tablewidth"] {
+                width: 90% !important;
+                text-align: center !important;
+            }
+
+            td[class="txt16"] {
+                font-size: 12px !important;
+                line-height: 18px !important;
+            }
+
+            td[class="txt6"] {
+                font-size: 14px !important;
+                line-height: 22px !important;
+            }
+
+            td[class="txt11"] {
+                font-size: 11px !important;
+                line-height: 14px !important;
+            }
+
+            table[class="btn_width"],
+            a[class="btn_width"] {
+                max-width: 220px !important;
+            }
+
+        }
+
+        @media only screen and (max-width: 320px) {
+            td[class="txt12"] {
+                font-size: 12px !important;
+                line-height: 20px !important;
+            }
+
+            img[class="logo"] {
+                width: 150px !important;
+                height: auto !important;
+            }
+
+            td[class="space22"] {
+                width: 30px !important;
+            }
+
+            td[class="w5"] {
+                width: 5px !important;
+            }
+        }
+
+        .st0 {
+            fill: #8098FF;
+        }
+
+        .st1 {
+            fill: #EEFAFF;
+        }
+
+        .st2 {
+            fill: #B1E7FF;
+        }
+
+        .st3 {
+            fill: #8FA5FF;
+        }
+
+        .st4 {
+            fill: #FFFFFF;
+        }
+
+        .st5 {
+            fill: none;
+            stroke: #FFFFFF;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+        }
+
+        .st6 {
+            opacity: 0.5;
+            fill: none;
+            stroke: #FFFFFF;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+        }
+
+        .st7 {
+            opacity: 0.5;
+            fill: #FFFFFF;
+        }
+
+        .rules-of-use {
+            font-size: 12px;
+            text-decoration: none;
+            color: #B9BDD8;
+            position: absolute;
+            right: -50%;
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0;" bgcolor="#eaeced">
+<!-- wrapper -->
+<table width="600" align="center" border="0" cellpadding="0" cellspacing="0"
+       style="border-collapse: collapse;">
+    <thead class="main-row">
+    <tr>
+        <th height="50" scope="col" id="empty-row-0"></th>
+    </tr>
+    </thead>
+    <tr>
+        <td>
+    <svg version="1.1" id="Опрос" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 167.7 48.3"
+         xml:space="preserve">
+  <linearGradient id="gradient" x2="4" y2="1">
+    <stop class="main-stop" offset="-4.19%"/>
+      <stop class="alt-stop" offset="103.11%"/>
+  </linearGradient>
+        <style type="text/css">
+		.main-stop {stop-color: #5864FF}
+        .alt-stop {stop-color: #00FAFF;}
+        .st0{fill:url(#gradient)}
+        @keyframes mouth {
+            0% {
+                transform:scale(1,1)  skewX(0deg);
+            }
+            8.33%, 25% {
+                transform:scale(1,1.4) translateY(-2px);
+            }
+            33.33%, 50% {
+                transform:scale(1,1.5) translateY(-3px);
+            }
+            58.33%, 75%, 83.33%, 100% {
+                transform:scale(1,1.3) translateY(-1px)
+            }
+            100%{
+                transform:scale(1,1)
+            }
+        }
+
+        #mouth {
+            animation-name: mouth;
+            animation-duration: 12s;
+            animation-iteration-count: infinite;
+            transform-origin:center;
+            animation-timing-function: linear;
+        }
+    </style>
+        <path class="st0"
+              d="M25.2 3.7c-.7-.7-1.6-1-2.5-1-.9 0-1.8.3-2.5 1L3.6 20.4c-1.4 1.4-1.4 3.6 0 4.9.9.9 2.1 1.2 3.2.9v11.2c0 4.5 3.7 8.2 8.2 8.2h15.8c4.5 0 8.2-3.7 8.2-8.2V26.3c1.1.2 2.2-.1 3-1 1.4-1.4 1.4-3.6 0-4.9L25.2 3.7zm5.5 37.9H15c-2.3 0-4.2-1.9-4.2-4.2V23l12-12L35 23.2v14.3c-.1 2.3-2 4.1-4.3 4.1z"/>
+        <path class="st0"
+              d="M29.3 23.7c-1.4 0-2.5 1.1-2.5 2.5s1.1-.6 2.5-.6 2.5 2 2.5.6-1.1-2.5-2.5-2.5zM18.5 26.2c0-1.4-1.1-2.5-2.5-2.5s-2.5 1.1-2.5 2.5 1.1-.6 2.5-.6c1.3-.1 2.5 1.9 2.5.6z"/>
+        <path class="st0" d="M22.9 36.9c3.7 0 7-1.9 8.9-4.7H13.9c2 2.9 5.2 4.7 9 4.7z"
+              style="animation-name:mouth;animation-duration:12s;animation-iteration-count:infinite;transform-origin:center;animation-timing-function:linear"/>
+        <path class="st0"
+              d="M55.7 26c.4-.6.9-1 1.5-1.4.6-.3 1.3-.5 2.2-.5.5 0 .9.1 1.3.2s.8.2 1.2.4c.4.1.7.3 1.1.4.4.1.7.2 1.1.2.3 0 .7-.1.9-.3.3-.2.5-.4.7-.7.2-.3.3-.6.4-.9.1-.3.2-.6.2-1 0-.7-.3-1.3-.8-1.8s-1.2-.9-1.9-1.2c-.7-.3-1.5-.5-2.4-.6-.9-.1-1.6-.2-2.1-.2-1.6 0-3 .3-4.3 1-1.3.6-2.4 1.5-3.3 2.5-.9 1-1.7 2.3-2.2 3.6-.5 1.4-.8 2.8-.8 4.3s.3 3 .8 4.4c.5 1.4 1.2 2.6 2.1 3.6.9 1 2.1 1.9 3.4 2.4 1.3.6 2.8.9 4.3.9.5 0 1.2-.1 2-.2s1.6-.4 2.4-.7c.8-.3 1.4-.7 2-1.2.5-.5.8-1.2.8-1.9s-.2-1.3-.7-1.8c-.5-.5-1.1-.8-1.8-.8-.2 0-.4.1-.8.2-.3.1-.7.2-1.1.4-.4.2-.9.3-1.3.4-.5.1-.9.2-1.2.2-.8 0-1.5-.2-2.1-.5-.6-.3-1.1-.8-1.5-1.4-.4-.6-.8-1.2-1-1.9-.2-.7-.3-1.4-.3-2.2 0-.8.1-1.5.3-2.2.2-.5.5-1.1.9-1.7zM85.8 22.2c-.9-1.1-2.1-1.9-3.4-2.5-1.3-.6-2.7-1-4.3-1-1.6 0-3 .3-4.3 1-1.3.6-2.4 1.5-3.4 2.5-.9 1-1.6 2.3-2.2 3.6-.5 1.4-.8 2.8-.8 4.3s.3 3 .8 4.4c.5 1.4 1.2 2.6 2.1 3.6.9 1 2.1 1.9 3.4 2.4 1.3.6 2.8.9 4.3.9 1.6 0 3-.3 4.3-.9 1.3-.6 2.4-1.4 3.4-2.4.9-1 1.6-2.3 2.1-3.6.5-1.4.8-2.8.8-4.4 0-1.5-.3-2.9-.8-4.3-.4-1.3-1.1-2.5-2-3.6zm-3.3 10.1c-.2.7-.5 1.4-.9 1.9-.4.6-.9 1-1.4 1.4-.6.4-1.3.6-2.1.6s-1.5-.2-2.1-.6c-.6-.3-1.1-.8-1.4-1.4-.4-.6-.7-1.2-.9-1.9-.2-.7-.3-1.4-.3-2.1 0-.7.1-1.4.3-2.1s.5-1.4.8-2c.4-.6.9-1 1.4-1.4.6-.4 1.3-.6 2.1-.6s1.5.2 2.1.6c.6.4 1.1.8 1.4 1.4.4.6.7 1.2.8 2 .2.7.3 1.4.3 2.1.2.7.1 1.4-.1 2.1zM94.1 11.4c-.9 0-1.6.3-2.1.9-.6.6-.8 1.4-.8 2.4v23.6c0 1 .3 1.8.8 2.4.5.6 1.2.9 2.1.9s1.6-.3 2.1-.9c.6-.6.8-1.4.8-2.4V14.7c0-1-.3-1.8-.8-2.4-.5-.6-1.2-.9-2.1-.9zM116.7 20.5c-1.4-1.1-3.5-1.7-6.3-1.7-.9 0-1.8.1-2.7.4-1 .2-1.8.6-2.6 1s-1.5.9-2 1.4c-.5.5-.8 1.1-.8 1.7 0 .6.2 1.1.6 1.7.4.5 1.1.8 2 .8.4 0 .7-.1 1-.3.3-.2.7-.5 1.1-.7.4-.2.9-.5 1.4-.7.6-.2 1.3-.3 2.1-.3s1.5.1 1.9.4c.5.2.7.6.7 1.2V27c-1.4 0-2.8.1-4.4.2-1.6.2-3 .5-4.4 1-1.4.5-2.5 1.3-3.4 2.3-.9 1-1.3 2.4-1.3 4.1 0 1.1.2 2.2.6 3.1.4.9 1 1.6 1.7 2.2.7.6 1.6 1 2.6 1.3 1 .3 2.1.5 3.3.5.5 0 1-.1 1.5-.2.6-.1 1.1-.2 1.6-.4s1-.5 1.4-.8c.4-.3.8-.7 1-1.1.2.9.6 1.6 1.1 1.9.5.3 1.1.5 1.7.5.9 0 1.6-.3 2.1-.9.5-.6.8-1.4.8-2.2V25.4c-.1-2.2-.8-3.8-2.3-4.9zm-3.4 11.7c0 1.4-.4 2.5-1.1 3.3-.7.8-1.8 1.2-3.4 1.2-.4 0-.9 0-1.3-.1s-.8-.2-1.2-.4c-.3-.2-.6-.4-.8-.6-.2-.3-.3-.6-.3-1 0-.9.3-1.6.8-2 .5-.5 1.1-.8 1.9-1 .8-.2 1.6-.3 2.6-.3h2.8v.9zM141.6 22.4c-.8-1.1-1.8-2-3-2.6-1.2-.7-2.6-1-4.2-1-2.1 0-4 .7-5.6 2v-6.1c0-1-.3-1.8-.8-2.4-.5-.6-1.2-.9-2.1-.9s-1.6.3-2.1.9c-.6.6-.8 1.4-.8 2.4v23.7c0 1 .3 1.8.8 2.4.5.6 1.2.9 2.1.9.8 0 1.5-.3 2-.8s.8-1.2 1-2c.5.9 1.3 1.6 2.4 2 1 .5 2 .7 3 .7 1.5 0 2.8-.3 4-1 1.2-.6 2.2-1.5 3.1-2.5.9-1 1.5-2.2 2-3.6.5-1.3.7-2.7.7-4.1 0-1.4-.2-2.8-.6-4.2-.5-1.4-1.1-2.7-1.9-3.8zm-3.8 9.9c-.2.7-.5 1.3-.8 1.9-.4.6-.9 1-1.4 1.4-.6.4-1.3.6-2 .6-.8 0-1.5-.2-2.1-.6-.6-.4-1-.9-1.4-1.4-.4-.6-.7-1.3-.8-2-.2-.7-.2-1.4-.2-2.2 0-.7.1-1.4.3-2.1.2-.7.5-1.3.8-1.9.4-.5.9-1 1.4-1.3.6-.3 1.3-.5 2.1-.5.7 0 1.4.2 2 .6.6.4 1 .8 1.4 1.4.4.6.7 1.2.8 2s.3 1.4.3 2.1c-.1.6-.2 1.3-.4 2zM162.9 20.5c-1.4-1.1-3.5-1.7-6.3-1.7-.9 0-1.8.1-2.7.4-1 .2-1.8.6-2.6 1s-1.5.9-2 1.4c-.5.5-.8 1.1-.8 1.7 0 .6.2 1.1.6 1.7.4.5 1.1.8 2 .8.4 0 .7-.1 1-.3.3-.2.7-.5 1.1-.7.4-.2.9-.5 1.4-.7.6-.2 1.3-.3 2.1-.3s1.5.1 1.9.4c.5.2.7.6.7 1.2V27c-1.4 0-2.8.1-4.4.2-1.6.2-3 .5-4.4 1-1.4.5-2.5 1.3-3.4 2.3-.9 1-1.3 2.4-1.3 4.1 0 1.1.2 2.2.6 3.1.4.9 1 1.6 1.7 2.2.7.6 1.6 1 2.6 1.3 1 .3 2.1.5 3.3.5.5 0 1-.1 1.5-.2.6-.1 1.1-.2 1.6-.4s1-.5 1.4-.8c.4-.3.8-.7 1-1.1.2.9.6 1.6 1.1 1.9.5.3 1.1.5 1.7.5.9 0 1.6-.3 2.1-.9.5-.6.8-1.4.8-2.2V25.4c-.1-2.2-.8-3.8-2.3-4.9zm-3.4 11.7c0 1.4-.4 2.5-1.1 3.3-.7.8-1.8 1.2-3.4 1.2-.4 0-.9 0-1.3-.1s-.8-.2-1.2-.4c-.3-.2-.6-.4-.8-.6-.2-.3-.3-.6-.3-1 0-.9.3-1.6.8-2 .5-.5 1.1-.8 1.9-1 .8-.2 1.6-.3 2.6-.3h2.8v.9z"/>
+</svg>
+        </td>
+    </tr>
+    <tr>
+        <td style="border-radius: 40px;">
+            <table align="center" border="0" cellpadding="0" cellspacing="0"
+                   style="border-collapse: collapse; color: #0E1C71">
+                <thead class="content-header">
+                <tr bgcolor="#000000">
+                    <th scope="col" id="empty-row-1" width="5%"></th>
+                    <th scope="col" id="welcome" width="60%" style="color: #ffffff" align="left">
+                        <h1>Добро пожаловать, <span th:text="${NICKNAME}">Друг</span>!</h1>
+                    </th>
+                    <th scope="col" id="logo" width="15%">
+                        <?xml version="1.0" encoding="utf-8"?>
+                        <!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewBox="0 0 211.41 61.48" style="enable-background:new 0 0 211.41 61.48;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#07C599;}
+    .st1{fill:#516CFC;}
+    .st2{opacity:0.74;fill:#AC51FF;}
+</style>
+                            <g>
+	<path class="st0" d="M18.97,10.94h2.49V8.45c0-0.42,0.34-0.76,0.76-0.76s0.76,0.34,0.76,0.76v2.49h2.49c0.42,0,0.76,0.34,0.76,0.76
+		c0,0.42-0.34,0.76-0.76,0.76h-2.49v2.49c0,0.42-0.34,0.76-0.76,0.76s-0.76-0.34-0.76-0.76v-2.49h-2.49c-0.42,0-0.76-0.34-0.76-0.76
+		v0C18.22,11.28,18.56,10.94,18.97,10.94z"/>
+                                <path class="st0" d="M203.75,56.16h2.49v-2.49c0-0.42,0.34-0.76,0.76-0.76s0.76,0.34,0.76,0.76v2.49h2.49
+		c0.42,0,0.76,0.34,0.76,0.76c0,0.42-0.34,0.76-0.76,0.76h-2.49v2.49c0,0.42-0.34,0.76-0.76,0.76s-0.76-0.34-0.76-0.76v-2.49h-2.49
+		c-0.42,0-0.76-0.34-0.76-0.76v0C203,56.5,203.34,56.16,203.75,56.16z"/>
+                                <path class="st0" d="M87.13,22.21h3.73v-3.73c0-0.63,0.51-1.13,1.13-1.13c0.63,0,1.13,0.51,1.13,1.13v3.73h3.73
+		c0.63,0,1.13,0.51,1.13,1.13c0,0.63-0.51,1.13-1.13,1.13h-3.73v3.73c0,0.63-0.51,1.13-1.13,1.13c-0.63,0-1.13-0.51-1.13-1.13v-3.73
+		h-3.73c-0.63,0-1.13-0.51-1.13-1.13v0C86,22.71,86.51,22.21,87.13,22.21z"/>
+                                <path class="st1" d="M55.46,4.98h2.49V2.49c0-0.42,0.34-0.76,0.76-0.76s0.76,0.34,0.76,0.76v2.49h2.49c0.42,0,0.76,0.34,0.76,0.76
+		c0,0.42-0.34,0.76-0.76,0.76h-2.49v2.49c0,0.42-0.34,0.76-0.76,0.76s-0.76-0.34-0.76-0.76V6.49h-2.49c-0.42,0-0.76-0.34-0.76-0.76
+		v0C54.71,5.32,55.05,4.98,55.46,4.98z"/>
+                                <path class="st2" d="M201.64,20.1h2.49v-2.49c0-0.42,0.34-0.76,0.76-0.76s0.76,0.34,0.76,0.76v2.49h2.49
+		c0.42,0,0.76,0.34,0.76,0.76c0,0.42-0.34,0.76-0.76,0.76h-2.49v2.49c0,0.42-0.34,0.76-0.76,0.76s-0.76-0.34-0.76-0.76v-2.49h-2.49
+		c-0.42,0-0.76-0.34-0.76-0.76v0C200.89,20.43,201.22,20.1,201.64,20.1z"/>
+                                <path class="st1" d="M169.2,11.83h2.49V9.34c0-0.42,0.34-0.76,0.76-0.76s0.76,0.34,0.76,0.76v2.49h2.49c0.42,0,0.76,0.34,0.76,0.76
+		c0,0.42-0.34,0.76-0.76,0.76h-2.49v2.49c0,0.42-0.34,0.76-0.76,0.76s-0.76-0.34-0.76-0.76v-2.49h-2.49c-0.42,0-0.76-0.34-0.76-0.76
+		v0C168.44,12.17,168.78,11.83,169.2,11.83z"/>
+                                <path class="st2" d="M57.51,34.29h3.73v-3.73c0-0.63,0.51-1.13,1.13-1.13c0.63,0,1.13,0.51,1.13,1.13v3.73h3.73
+		c0.63,0,1.13,0.51,1.13,1.13c0,0.63-0.51,1.13-1.13,1.13h-3.73v3.73c0,0.63-0.51,1.13-1.13,1.13c-0.63,0-1.13-0.51-1.13-1.13v-3.73
+		h-3.73c-0.63,0-1.13-0.51-1.13-1.13v0C56.38,34.8,56.89,34.29,57.51,34.29z"/>
+                                <path class="st2" d="M122.49,5.43h3.73V1.7c0-0.63,0.51-1.13,1.13-1.13c0.63,0,1.13,0.51,1.13,1.13v3.73h3.73
+		c0.63,0,1.13,0.51,1.13,1.13c0,0.63-0.51,1.13-1.13,1.13h-3.73v3.73c0,0.63-0.51,1.13-1.13,1.13c-0.63,0-1.13-0.51-1.13-1.13V7.7
+		h-3.73c-0.63,0-1.13-0.51-1.13-1.13v0C121.35,5.94,121.86,5.43,122.49,5.43z"/>
+                                <circle class="st1" cx="82.8" cy="53.77" r="2.5"/>
+                                <circle class="st1" cx="98.96" cy="4.72" r="2.5"/>
+                                <circle class="st1" cx="38.19" cy="26.16" r="2.5"/>
+                                <circle class="st1" cx="195.69" cy="36.55" r="2.5"/>
+                                <circle class="st1" cx="1.91" cy="5.88" r="1.5"/>
+</g>
+</svg>
+                        <?xml version="1.0" encoding="utf-8"?>
+                        <!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                             viewBox="0 0 93.19 109.19" style="enable-background:new 0 0 93.19 109.19;"
+                             xml:space="preserve">
+<style type="text/css">
+	.st0 {
+        fill: #E54647;
+    }
+
+    .st1 {
+        fill: #EEFAFF;
+    }
+
+    .st2 {
+        fill: #F76660;
+    }
+
+    .st3 {
+        fill: #E4E8F8;
+    }
+</style>
+                            <g>
+	<g>
+		<g>
+			<rect x="0.65" y="44.25" class="st0" width="91.88" height="64.22"/>
+            <path class="st0" d="M0.65,44.25h91.88L61.88,7.84c-7.99-9.49-22.6-9.49-30.58,0L0.65,44.25z"/>
+            <g>
+				<rect x="13.86" y="12.77" class="st1" width="66.25" height="77.16"/>
+			</g>
+            <polygon class="st2" points="92.53,108.46 92.53,44.25 47.56,77.03 			"/>
+            <polygon class="st2" points="0.65,108.46 0.65,44.25 45.63,77.03 			"/>
+            <path class="st0" d="M0.65,108.46h91.88L61.88,72.05c-7.99-9.49-22.6-9.49-30.58,0L0.65,108.46z"/>
+		</g>
+        <g>
+			<g>
+				<rect x="28.58" y="42.19" class="st3" width="36.93" height="4.1"/>
+			</g>
+            <g>
+				<rect x="28.58" y="49.37" class="st3" width="36.93" height="4.1"/>
+			</g>
+            <g>
+				<rect x="28.58" y="33.98" class="st3" width="36.93" height="4.1"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>
+                    </th>
+                </thead>
+
+                <tr bgcolor="#f5f5f5">
+                    <td colspan="4" height="40"></td>
+                </tr>
+                <tr bgcolor="#f5f5f5">
+                    <td></td>
+                    <td style="font-size: 18px; ">
+                        Вы успещно создали аккаунт в Colaba, пожалуйста подтвердите вашу
+                        почту, чтобы продолжить, нажмите на кнопку ниже чтоб начать.
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr bgcolor="#f5f5f5">
+                    <td colspan="4" height="40"></td>
+                </tr>
+
+                <tr bgcolor="#f5f5f5">
+                    <td></td>
+                    <td style="font-size: 14px;" class="btn_width txt12">
+                        <a th:href="${REDIRECT_URL}"
+                           target="_blank" rel="noreferrer noopener"
+
+                           style="text-decoration: none; color:#f8f9fb; background: #3bb07d;
+                                  display: inline-block; text-align: center; padding: 12px 10px 10px; border-radius: 4px;">&nbsp;
+                            <b>Подтвердить почту</b>&nbsp;&nbsp;
+                        </a>
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr bgcolor="#f5f5f5">
+                    <td colspan="4" height="40"></td>
+                </tr>
+
+                <tr bgcolor="#f5f5f5">
+                    <td></td>
+                    <td style="font-size: 16px; color: #B9BDD8;">
+                        Если вы этого не совершали, или кто-то другой воспользовался<br>вашей
+                        почтой игнорируйте это письмо
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr bgcolor="#f5f5f5">
+                    <td colspan="4" height="40"></td>
+                </tr>
+
+                <tr bgcolor="#f5f5f5">
+                    <td></td>
+                    <td style="font-size: 12px; color: #B9BDD8; position: relative">
+                        <strong>© 2020 Colaba</strong><br>
+                        Все права защищены
+                        <a href="#" class="rules-of-use">Правила пользования</a>
+                    </td>
+                    <td colspan="4">
+                    </td>
+                </tr>
+                <tr bgcolor="#f5f5f5">
+                    <td colspan="4" height="20"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
 </body>
 </html>
